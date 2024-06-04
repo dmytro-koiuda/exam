@@ -17,6 +17,10 @@ public class TeacherController {
         return teacherService.getAll();
     }
 
+    @GetMapping("/teachers/{id}/courses-duration")
+    public CoursesDurationDto coursesDuration(@PathVariable(value = "id") Long teacherId) {
+        return teacherService.getCoursesDuration(teacherId);
+    }
 
     @GetMapping("/teachers/{id}")
     public Teacher getTeacherById(@PathVariable(value = "id") Long teacherId) {
