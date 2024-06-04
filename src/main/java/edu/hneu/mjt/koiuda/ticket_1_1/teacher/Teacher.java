@@ -1,10 +1,10 @@
 package edu.hneu.mjt.koiuda.ticket_1_1.teacher;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import edu.hneu.mjt.koiuda.ticket_1_1.course.Course;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,6 +28,9 @@ public class Teacher {
     private float experience;
 
     private String phoneNumber;
+
+    @OneToMany(mappedBy = "teacher")
+    private List<Course> courses;
 
     public Teacher(TeacherDto dto) {
         this.fullName = dto.fullName();
